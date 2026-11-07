@@ -1,0 +1,42 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.42s
+     Running tests/composition.rs (target/debug/deps/composition-f953168fa2b423f4)
+
+running 2 tests
+test commit_is_one_undo_and_reports_caret_bounds ... composition anchor bounds Some(Bounds { origin: Point { x: 9.6px, y: 7px }, size: Size { 1px × 12px } })
+ok
+test preedit_is_marked_and_cancel_does_not_commit ... preedit events:
+Changed { revision: 2, origin: Ime }
+SelectionChanged
+Changed { revision: 3, origin: Ime }
+SelectionChanged
+Changed { revision: 4, origin: Ime }
+SelectionChanged
+ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/round_trip.rs (target/debug/deps/round_trip-3b0caa934713b457)
+
+running 6 tests
+test codepoint_and_zwj_offsets_are_utf8_bytes ... ok
+test commands_build_heading_emphasis_list_and_table ... ok
+test extra_blank_lines_collapse_and_then_stay_stable ... ok
+test headings_lists_emphasis_links_and_tables_survive_parse ... ok
+test multilingual_fixture_round_trips_byte_for_byte ... ok
+test scripts_and_emoji_keep_leaf_text ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/selection_undo.rs (target/debug/deps/selection_undo-09c04f8c98055047)
+
+running 6 tests
+test cross_block_text_selection_replaces_one_transaction ... ok
+test leaf_range_is_plain_text_not_canonical_markdown_offsets ... ok
+test navigation_and_invalidate_reject_without_changing_text ... ok
+test replace_captured_keeps_undo_and_rejects_stale_ranges ... ok
+test set_source_drops_history_and_caret ... ok
+test table_cell_selection_is_not_a_text_capture ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+EXIT:0
