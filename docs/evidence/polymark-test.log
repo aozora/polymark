@@ -1,0 +1,6 @@
+?   	github.com/aozora/polymark/cmd/polymark	[no test files]
+ok  	github.com/aozora/polymark/internal/appui	0.050s
+ok  	github.com/aozora/polymark/internal/library	0.010s
+ok  	github.com/aozora/polymark/internal/model	0.003s
+ok  	github.com/aozora/polymark/internal/store	0.016s
+ok  	github.com/aozora/polymark/internal/theme	0.003s

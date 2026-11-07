@@ -1,8 +1,11 @@
 # Polymark
 
-Local-file writing, investigated as a GPUiX Svelte window with one native
-Markdown editor. This repository is a feasibility proof of concept. It is not
-the application, and it is not a release.
+Local-file writing. The selected editor is Go and native MyGo `ui/richtext`.
+The app is `cmd/polymark`. How to build it, the file format, and what is
+still untested are in `docs/app.md`.
+
+The GPUiX and MyGo feasibility probes remain under `probes/`. They are not
+the app.
 
 The editor under test for the GPUiX route is
 [`gpui-kit-markdown-editor`](https://github.com/wabzqem/gpui-kit-markdown-editor)
@@ -17,7 +20,18 @@ can host the writing surface. It lives in `probes/mygo-editor` and is written
 up in `docs/mygo-findings.md`. It does not replace the GPUiX results, and it
 does not select a stack.
 
-## What runs here
+## Application
+
+```sh
+export PATH="$HOME/sdk/go/bin:$PATH"   # Go 1.27.3 or newer
+go test ./...
+go run ./cmd/polymark -project /path/to/folder
+```
+
+`-seed` creates `Welcome.md` when the folder has no documents. `-theme`
+reads a JSON file of `#rrggbb` colors and does not run a script.
+
+## Earlier probes
 
 - Headless model tests for Markdown round trip, selection, undo, and the
   difference between `replace_captured` and `set_source`. They link the
@@ -83,6 +97,9 @@ scripts/check-gpui-identity.sh
 
 | Path | Role |
 | --- | --- |
+| `cmd/polymark/` | Native MyGo writing app |
+| `internal/` | Project files, document model, window |
+| `docs/app.md` | Format, what passed, what was not run |
 | `app/` | GPUiX Svelte shell |
 | `crates/polymark-editor-contracts/` | Editor contract tests |
 | `probes/gpui-identity/` | Separate crate, one-function mount |
