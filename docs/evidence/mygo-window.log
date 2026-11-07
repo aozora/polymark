@@ -1,0 +1,3 @@
+DISPLAY=:99
+2026/11/07 16:44:02 mygo: native UI draws without the GPU: there is none
+capture_exit=0

@@ -29,3 +29,10 @@ Their notices stay with their code; this file does not relicense them.
 The hyphenated-tag patch in scripts/patch-hyphenated-tags.mjs is original
 Polymark code. It edits the installed gpuix-svelte 0.5.0 renderer at
 install time and does not vendor that renderer.
+
+- MyGo v0.8.3, commit 5add3817c74bb7505d0b473bc5fb28abe2201b99.
+  License: MIT. https://github.com/egoist/mygo
+  The Linux backend loads GTK 3, and WebKitGTK 4.1 when a web view is used,
+  at run time through purego. Those system libraries are LGPL. This
+  repository does not vendor them. libsecret (LGPL) is the optional
+  credential store on Linux.

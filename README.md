@@ -4,13 +4,18 @@ Local-file writing, investigated as a GPUiX Svelte window with one native
 Markdown editor. This repository is a feasibility proof of concept. It is not
 the application, and it is not a release.
 
-The editor under test is
+The editor under test for the GPUiX route is
 [`gpui-kit-markdown-editor`](https://github.com/wabzqem/gpui-kit-markdown-editor)
 0.2.0. The shell is
 [`gpuix-svelte`](https://github.com/khromov/gpuix-svelte) 0.5.0 on
 [`@gpuix/native`](https://github.com/remorses/gpuix) 0.11.0. Those two do not
 share a GPUI crate, and the published native build cannot register an external
 element. Details, versions, and the test matrix are in `docs/`.
+
+A second, separate probe asks whether [MyGo](https://mygo.egoist.dev/) v0.8.3
+can host the writing surface. It lives in `probes/mygo-editor` and is written
+up in `docs/mygo-findings.md`. It does not replace the GPUiX results, and it
+does not select a stack.
 
 ## What runs here
 
@@ -59,6 +64,14 @@ A real window under Xvfb, when you want pixels from `GpuixRenderer`:
 scripts/run-window.sh
 ```
 
+The MyGo probe needs Go 1.27.3, which is newer than the image default:
+
+```sh
+export PATH="$HOME/sdk/go/bin:$PATH"   # or any Go 1.27.3+
+cd probes/mygo-editor
+go test -count=1
+```
+
 The identity probe clones gpuix and its Zed submodule, then compiles both
 GPUI graphs. It is expected to fail rustc. The log is the evidence:
 
@@ -73,6 +86,8 @@ scripts/check-gpui-identity.sh
 | `app/` | GPUiX Svelte shell |
 | `crates/polymark-editor-contracts/` | Editor contract tests |
 | `probes/gpui-identity/` | Separate crate, one-function mount |
+| `probes/mygo-editor/` | MyGo v0.8.3 native rich-text probe. Needs Go 1.27.3 |
+| `docs/mygo-findings.md` | What MyGo is, and what the probe ran |
 | `scripts/patch-hyphenated-tags.mjs` | Install-time bridge for custom tags |
 | `docs/findings.md` | What the sources and runs showed |
 | `docs/versions.md` | Pins and licenses |
