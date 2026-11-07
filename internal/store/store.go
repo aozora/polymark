@@ -16,12 +16,14 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/aozora/polymark/internal/link"
 	"github.com/aozora/polymark/internal/model"
 )
 
 const (
 	projectFile = "polymark.json"
 	recoveryDir = ".polymark/recovery"
+	linksFile   = ".polymark/links.json"
 	sidecarExt  = ".polymark.json"
 )
 
@@ -60,6 +62,8 @@ type Recovery struct {
 	Passages    []model.Passage `json:"passages,omitempty"`
 	SavedDigest string          `json:"savedDigest"`
 	Notice      string          `json:"notice,omitempty"`
+	// Group is the link state at the checkpoint. Old journals omit it.
+	Group json.RawMessage `json:"group,omitempty"`
 }
 
 type Node struct {
@@ -361,6 +365,26 @@ func (s *Store) Recoveries() ([]Recovery, error) {
 		out = append(out, r)
 	}
 	return out, nil
+}
+
+func (s *Store) LoadLinks() (link.File, error) {
+	var f link.File
+	err := s.readJSON(linksFile, &f)
+	if errors.Is(err, os.ErrNotExist) {
+		return link.File{Schema: link.Schema}, nil
+	}
+	if err != nil {
+		return link.File{}, err
+	}
+	if f.Schema != 0 && f.Schema != link.Schema {
+		return link.File{}, fmt.Errorf("links schema %d", f.Schema)
+	}
+	return f, nil
+}
+
+func (s *Store) SaveLinks(f link.File) error {
+	f.Schema = link.Schema
+	return s.writeJSON(linksFile, f)
 }
 
 func sidecarRel(rel string) string { return rel + sidecarExt }
