@@ -1,7 +1,5 @@
 node_modules/
 target/
 dist/
-*.log
-!docs/evidence/*.log
 .DS_Store
 probes/gpui-identity/target/
