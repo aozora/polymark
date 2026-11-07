@@ -1,0 +1,17 @@
+[workspace]
+
+[package]
+name = "polymark-gpui-identity"
+version = "0.0.0"
+edition = "2024"
+license = "MIT"
+publish = false
+description = "Compile probe: mount gpui-kit-markdown-editor inside gpuix-native's GPUI."
+
+[dependencies]
+# Published @gpuix/native 0.11.0 does not re-export `gpui` or
+# `register_custom_element`. Those exports exist on main after
+# 2f3ee31c4c40 (2026-10-23). This probe uses that later commit on purpose.
+gpuix-native = { git = "https://github.com/remorses/gpuix", rev = "0ce4f41fca8ffb9c18fd1efd2631f0f4b97a1abf" }
+gpui = { package = "gpui-pre", version = "=0.3.11" }
+gpui-kit-markdown-editor = "=0.2.0"

@@ -1,0 +1,38 @@
+Polymark original source in this repository is under the MIT License (see LICENSE).
+
+This feasibility proof of concept links or adapts the following upstreams.
+Their notices stay with their code; this file does not relicense them.
+
+- gpuix-svelte 0.5.0 (npm), commit 1bbf51d0a8bab8523ddcc1745610f94c695640db
+  on the docs site source. License: MIT. Text: docs/licenses/gpuix-svelte-MIT.txt.
+  Bundled Svelte 5.57.2 is MIT (Svelte contributors).
+- @gpuix/native 0.11.0 (npm), git tag @gpuix/native@0.11.0,
+  commit 2e31b47ff6432ceebe70e7fc7b0f51a76d7d30cf. License: Apache-2.0.
+  Text: docs/licenses/gpuix-Apache-2.0.txt.
+  Its GPUI comes from the remorses/zed submodule
+  f77e5cfe9dad04288566f00c66ecf3c58d6f84b3 (Apache-2.0, Zed GPUI).
+- Later gpuix main 0ce4f41fca8ffb9c18fd1efd2631f0f4b97a1abf documents
+  register_custom_element. That API is not in the published 0.11.0 crate.
+  The identity probe builds against that later commit and is still Apache-2.0.
+- gpui-kit 0.9.0. License: Apache-2.0.
+  Text: docs/licenses/gpui-kit-Apache-2.0.txt.
+- gpui-pre 0.3.11 (crates.io), described by the publisher as a snapshot of
+  zed-industries/zed@f816e1f9263e3a8ef63c4baaa02e1441ce1c6038.
+  License: Apache-2.0. Text: docs/licenses/gpui-pre-Apache-2.0.txt.
+- gpui-kit-markdown-editor 0.2.0, commit
+  bb2f1a27203264397378600ac2818d43b05762fc. License: Apache-2.0.
+  Text: docs/licenses/gpui-kit-markdown-editor-Apache-2.0.txt.
+  The crate embeds Lucide icons under the ISC license
+  (assets/icons/LICENSE-LUCIDE in that repository). This repository does not
+  copy those SVG files.
+
+The hyphenated-tag patch in scripts/patch-hyphenated-tags.mjs is original
+Polymark code. It edits the installed gpuix-svelte 0.5.0 renderer at
+install time and does not vendor that renderer.
+
+- MyGo v0.8.3, commit 5add3817c74bb7505d0b473bc5fb28abe2201b99.
+  License: MIT. https://github.com/egoist/mygo
+  The Linux backend loads GTK 3, and WebKitGTK 4.1 when a web view is used,
+  at run time through purego. Those system libraries are LGPL. This
+  repository does not vendor them. libsecret (LGPL) is the optional
+  credential store on Linux.

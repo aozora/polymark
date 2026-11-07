@@ -1,0 +1,9 @@
+date=2026-11-07T16:22:29Z
+node=v24.22.2
+display_driver=/usr/share/vulkan/icd.d/lvp_icd.json
+DISPLAY=:99
+[2026-11-07T16:22:30Z ERROR gpui_linux::linux::x11::client] Found no xinput mouse pointers.
+[gpuix-svelte] created native window
+[gpuix-svelte] mount complete
+capture_exit=0
+script_exit=0

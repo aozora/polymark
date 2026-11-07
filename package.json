@@ -1,0 +1,26 @@
+{
+  "name": "polymark",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "postinstall": "node scripts/patch-hyphenated-tags.mjs",
+    "start": "gpuix-svelte app/app.ts",
+    "test:tags": "node --test scripts/patch-hyphenated-tags.test.mjs",
+    "test:headless": "gpuix-svelte app/test.ts",
+    "typecheck": "tsc --noEmit -p app/tsconfig.json && svelte-check --tsconfig app/tsconfig.json --diagnostic-sources js,svelte --fail-on-warnings"
+  },
+  "dependencies": {
+    "@gpuix/native": "0.11.0",
+    "gpuix-svelte": "0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "svelte-check": "4.7.6",
+    "typescript": "5.9.3"
+  }
+}

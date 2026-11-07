@@ -1,0 +1,22 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling polymark-editor-contracts v0.0.0 (/workspace/crates/polymark-editor-contracts)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 38.93s
+     Running tests/composition.rs (target/debug/deps/composition-f953168fa2b423f4)
+
+running 2 tests
+test commit_is_one_undo_and_reports_caret_bounds ... composition anchor bounds Some(Bounds { origin: Point { x: 9.6px, y: 7px }, size: Size { 1px × 12px } })
+ok
+test preedit_is_marked_and_cancel_does_not_commit ... preedit events:
+Changed { revision: 2, origin: Ime }
+SelectionChanged
+Changed { revision: 3, origin: Ime }
+SelectionChanged
+Changed { revision: 4, origin: Ime }
+SelectionChanged
+ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+EXIT:0
