@@ -28,8 +28,15 @@ go test ./...
 go run ./cmd/polymark -project /path/to/folder
 ```
 
-`-seed` creates `Welcome.md` when the folder has no documents. `-theme`
+`-seed` creates `Welcome.md` and an empty Italian linked file when the
+folder has no documents. The Italian file is not a translation. `-theme`
 reads a JSON file of `#rrggbb` colors and does not run a script.
+
+The window can show the source and one target (`en`, `it`, `ru`, `ja`)
+side by side. Passage links, outdated and protected state, and explicit
+replacement live in the app. No translation provider is configured, and
+the window says so. Details and the limits of this milestone are in
+`docs/app.md`.
 
 ## Earlier probes
 

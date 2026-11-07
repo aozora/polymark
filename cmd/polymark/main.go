@@ -46,6 +46,9 @@ func main() {
 			if err := lib.SaveCurrent(); err != nil {
 				log.Fatal(err)
 			}
+			if _, err := lib.CreateTarget(model.LangItalian); err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 	var tokens theme.Tokens
@@ -59,8 +62,8 @@ func main() {
 	mygo.App.WhenReady(func() {
 		mygo.NewWindow(mygo.WindowOptions{
 			Title:   "Polymark",
-			Width:   1100,
-			Height:  720,
+			Width:   1280,
+			Height:  800,
 			Content: ui.View(app.View),
 		})
 	})
